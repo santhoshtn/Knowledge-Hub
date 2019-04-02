@@ -1,0 +1,230 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Reveal Bootstrap Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
+        rel="stylesheet">
+</head>
+
+
+<body>
+    <header>
+        <app-nab-bar></app-nab-bar>
+    </header>
+    <main>
+        <section id="services">
+            <div class="container">
+                <div class="section-header">
+                    <h1>Modify Neo4j</h1>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="box wow fadeInLeft">
+                            <div class="icon"><i class="fa fa-plus-square"></i></div>
+                            <h4 class="title"><a (click)="onClickOpenConceptForm()">Add concept nodes</a></h4>
+                            <p class="description">Add concept nodes to neo4j graph</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="box wow fadeInRight">
+                            <div class="icon"><i class="fa fa-plus-circle"></i></div>
+                            <h4 class="title"><a (click)="onClickOpenIntentForm()">Add your own Terms</a></h4>
+                            <p class="description">Add term nodes to neo4j graph</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="box wow fadeInLeft">
+                            <div class="icon"><i class="fa fa-sitemap"></i></div>
+                            <h4 class="title"><a (click)="onD3()">Show Neo4j Nodes</a></h4>
+                            <p class="description">Visualise all concept and intent nodes</p>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6">
+                        <div class="box wow fadeInRight">
+                            <div class="icon"><i class="fa fa-list-ul"></i></div>
+                            <h4 class="title"><a (click)="onClickOpenTerms()">Get same as for Terms</a></h4>
+                            <p class="description">Add same as terms to the Neo4j Graph</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <br>
+            <form [hidden]="!openConcept" id="conceptForm" #form="ngForm" (ngSubmit)="createNode(form.value)">
+                <p>{{msg}}</p>
+                <div class="form-group">
+                    <label for="text">
+                        <h5>Concept Node Name:</h5>
+                    </label>
+                    <input type="text" class="form-control" id="domain" placeholder="Enter Concept Node Name" name="name"
+                        ngModel><br>
+                    <button class="btn btn-default" mat-raised-button type="button" (click)="showProperties()">Add
+                        Relationship</button>
+                </div>
+                <br>
+
+                <div [hidden]="!openProperty" class="align-fields">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <select class="form-control input-lg" [(ngModel)]="newAttribute.property" name="newAttributeProperty">
+                                <option>parent</option>
+                            </select>
+                        </div>&nbsp;
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control input-lg" placeholder="Enter parent name" id="newAttributeValue"
+                                [(ngModel)]="newAttribute.value" name="newAttributeValue">
+                        </div>
+                        <button class="btn btn-default" mat-raised-button type="button" (click)="addFieldValue()">
+                            Add </button>
+                    </div>
+                </div>
+
+                <div *ngFor="let field of fieldArray; let i = index" class="align-fields">
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <input class="form-control input-lg" name="{{field.property}}" value="{{field.property}}">
+                        </div>&nbsp;
+
+                        <div class="col-sm-4">
+                            <input class="form-control input-lg" [(ngModel)]="field.value" type="text" name="{{field.property}}" />
+                        </div>
+                        <button class="btn btn-default" mat-raised-button type="button" (click)="deleteFieldValue(i)">Delete</button>
+                    </div>
+                </div>
+                <br>
+                <button class="btn btn-default" mat-raised-button type="submit">Submit</button>
+                <div *ngIf="showNodes"> <svg height="100" width="200">
+                        <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="rgb(60, 209, 219)" />
+                        <text x="26%" y="50%" text-anchor="middle" fill="black" font-size="15px" dy=".3em">{{parent}}</text>
+                        <!-- <text x="10" y="50" text-anchor="middle" stroke="#51c5cf" >Look, I’m centered!Look, I’m centered!</text> -->
+                        <line x1="90" y1="50" x2="150" y2="50" style="stroke:rgb(4, 59, 33);stroke-width:2" />
+                        <circle cx="150" cy="50" r="20" stroke="black" stroke-width="3" fill="rgb(32, 238, 142)" />
+                        <text x="75%" y="50%" text-anchor="middle" fill="black" font-size="10px" dy=".3em">{{child}}</text>
+                    </svg> </div>
+            </form>
+            <br>
+            <form [hidden]="!openIntent" id="intentForm" #form1="ngForm" (ngSubmit)="createIntent(form1.value)">
+                <div class="form-group">
+                    <label for="text">
+
+                        <h5>Term Node Name:</h5>
+                        <p>{{msg1}}</p>
+                    </label>
+                    <input type="text" class="form-control" id="domain" placeholder="Enter Term Node Name" name="name"
+                        ngModel><br>
+
+                    <button class="btn btn-default" mat-raised-button type="button" (click)="showProperties()">Add
+                        Relationship</button>
+                </div>
+                <br>
+
+                <div class="align-fields" [hidden]="!openProperty">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <select class="form-control input-lg" [(ngModel)]="newAttribute.property" name="newAttributeProperty">
+                                <option>parent_node_type</option>
+                                <option>weight</option>
+
+                            </select>
+                        </div>&nbsp;
+                        <div class="col-sm-4">
+                            <input class="form-control input-lg" type="text" placeholder="Enter Property data" id="newAttributeValue"
+                                [(ngModel)]="newAttribute.value" name="newAttributeValue" />
+
+                        </div>
+
+
+                        <button class="btn btn-default" mat-raised-button type="button" (click)="addFieldValue()">
+                            Add </button>
+                    </div>
+                </div>
+
+                <div *ngFor="let field of fieldArray; let i = index">
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <input class="form-control input-lg" name="{{field.property}}" value="{{field.property}}">
+                        </div>&nbsp;
+                        <div class="col-sm-4">
+                            <input class="form-control input-lg" [(ngModel)]="field.value" type="text" name="{{field.property}}" />
+                        </div>
+                        <button class="btn btn-default" mat-raised-button type="button" (click)="deleteFieldValue(i)">Delete</button>
+                    </div>
+                </div>
+                <br>
+                <button class="btn btn-default" mat-raised-button type="button" type="submit">Submit</button>
+                <div *ngIf="showNodes"> <svg height="100" width="200">
+                        <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="rgb(60, 209, 219)" />
+                        <text x="26%" y="50%" text-anchor="middle" fill="black" font-size="15px" dy=".3em">{{parent}}</text>
+                        <!-- <text x="10" y="50" text-anchor="middle" stroke="#51c5cf" >Look, I’m centered!Look, I’m centered!</text> -->
+                        <line x1="90" y1="50" x2="150" y2="50" style="stroke:rgb(4, 59, 33);stroke-width:2" />
+                        <circle cx="150" cy="50" r="20" stroke="black" stroke-width="3" fill="rgb(32, 238, 142)" />
+                        <text x="75%" y="50%" text-anchor="middle" fill="black" font-size="10px" dy=".3em">{{child}}</text>
+                    </svg> </div>
+            </form>
+
+            <div [hidden]="!getTerms1">
+                <button class="btn btn-default" mat-raised-button type="button" (click)="onClickShowKnowledge()">Knowledge
+                </button>&nbsp;
+                <button class="btn btn-default" mat-raised-button type="button" (click)="onClickShowSynthesis()">Synthesis
+                </button>&nbsp;
+                <button class="btn btn-default" mat-raised-button type="button" (click)="onClickShowComprehension()">Comphrension
+                </button>&nbsp;
+                <button class="btn btn-default" mat-raised-button type="button" (click)="onClickShowEvaluation()">Evaluation
+                </button>&nbsp;
+                <button class="btn btn-default" mat-raised-button type="button" (click)="onClickShowAnaylsis()">Analysis
+                </button>&nbsp;
+                <button class="btn btn-default" mat-raised-button type="button" (click)="onClickShowApplication()">Application
+                </button>
+            </div>
+            <br>
+
+            <mat-list>
+                <h5><b>{{bloomstack}}</b></h5>
+                <tr *ngFor="let terms of intents | async">
+
+                    <td>
+                        <div>{{terms}}</div>
+                    </td>&nbsp;&nbsp;
+
+                    <td> <button class="btn btn-default" mat-raised-button type="button" (click)="openDialog(terms,bloomstack)">Add
+                            Synonym</button><br><br></td>
+                </tr>
+            </mat-list>
+        </div>
+    </main>
+    <footer>
+        <app-footer></app-footer>
+    </footer>
+    <!-- JavaScript Libraries -->
+    <script src="../../assets/conceptsLib/jquery/jquery.min.js"></script>
+    <script src="../../assets/conceptsLib/jquery/jquery-migrate.min.js"></script>
+    <script src="../../assets/conceptsLib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/conceptsLib/easing/easing.min.js"></script>
+    <script src="../../assets/conceptsLib/superfish/hoverIntent.js"></script>
+    <script src="../../assets/conceptsLib/superfish/superfish.min.js"></script>
+    <script src="../../assets/conceptsLib/wow/wow.min.js"></script>
+    <script src="../../assets/conceptsLib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../../assets/conceptsLib/magnific-popup/magnific-popup.min.js"></script>
+    <script src="../../assets/conceptsLib/sticky/sticky.js"></script>
+
+    <!-- Template Main Javascript File -->
+    <script src="../../assets/conceptsTs/main.js"></script>
+
+</body>
+
+</html>

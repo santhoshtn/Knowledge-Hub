@@ -1,0 +1,22 @@
+<div>
+  <h1 mat-dialog-title>Synonym for {{word}}:({{bloom}})</h1>
+  
+  <p>{{msg}}</p>
+  
+  <div mat-dialog-content>
+  
+      <mat-list *ngFor="let synonym of allTerms;let i=index">
+     
+          <form #form="ngForm" (ngSubmit)="addSynonym(bloom,word,synonym,form.value)">
+          <tr>
+          <td class="synonym">{{synonym}}</td>
+          <td class="lo"><input matInput type="text" placeholder="weight" id="score" name="synonym.score{{i}}" class="form-control" [(ngModel)]="synonym.score"></td>
+          <td><button mat-flat-button type="submit">Add This synonym</button></td>
+          </tr>
+        </form>
+      </mat-list>
+       </div>
+  <div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]>Ok</button>
+  </div>
+  

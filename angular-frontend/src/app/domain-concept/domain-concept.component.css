@@ -1,0 +1,40 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+
+
+p{
+    font-family: 'Indie Flower', cursive;
+    color: blanchedalmond;
+    font-size: 40px;
+    margin-left: 40px;
+   
+}
+
+#searchbutton:hover{
+  color:inherit;
+}
+main{
+  position: relative;
+  margin-top: 150px; 
+}
+footer{
+  position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 50px;
+    text-align: center;
+    padding-top: 10px;
+    color: white;
+    box-sizing: border-box;
+    font-size: 1.6rem;
+    
+}
+@media screen and (min-width: 140px) {
+  footer{
+    position: fixed;
+  }
+}

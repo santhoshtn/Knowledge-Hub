@@ -1,0 +1,476 @@
+version: "2.1"
+services:
+
+  apigateway:
+    image: zuul-service
+    build: zuul-gatewayservice/
+    restart: always
+    network_mode: host
+    depends_on:
+    - eurekaserver
+    ports:
+    - 8092:8092
+    - 8001-8001
+    expose:
+    - 8092
+    - 8001
+    healthcheck:
+      test: "exit 0"
+
+  eurekaserver:
+    image: eureka-servcie:latest
+    build: eureka-server/
+    restart: always
+    network_mode: host
+    ports:
+    - 9091:9091
+    expose:
+    - 9091
+    healthcheck:
+      test: "exit 0"
+
+  configserver:
+      image: config-service:latest
+      build: config-server/
+      restart: always
+      network_mode: host
+      ports:
+      - 8888:8888
+      expose:
+      - 8888
+      healthcheck:
+        test: "exit 0"
+
+  mysqldb:
+    image: mysql:5.7
+    restart: always
+    container_name: mysql-container
+    network_mode: "host"
+    hostname: localhost
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: LoginDB
+      MYSQL_PASSWORD: root123
+    ports:
+      - 3306:3306
+    healthcheck:
+      test: "exit 0"
+
+  mongodb:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    container_name: mongo
+    network_mode: "host"
+    hostname: localhost
+    healthcheck:
+      test: "exit 0"
+
+  neo4j:
+    image: neo4j:3.0
+    container_name: neo4j
+    network_mode: host
+    hostname: localhost
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - $PWD/plugins:/plugins
+      - $PWD/import:/import
+      - $PWD/data1:/var/lib/neo4j/data
+      - $PWD/logs1:/var/lib/neo4j/logs
+      - $PWD/conf:/var/lib/neo4j/conf
+    environment:
+      - NEO4J_AUTH=neo4j/neo4j@123
+    healthcheck:
+      test: "exit 0"
+
+  redis:
+    image: redis
+    container_name: redis
+    network_mode: host
+    hostname: localhost
+    ports:
+      - "6379:6379"
+    volumes:
+      - /DB/redis:/usr/local/etc/redis/redis.conf
+    entrypoint: redis-server --appendonly yes
+    healthcheck:
+      test: "exit 0"
+
+  loginservice:
+    image: login-service:latest
+    build: login-service/
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
+    ports:
+    - 8084:8084
+    expose:
+    - 8084
+    healthcheck:
+      test: "exit 0"
+
+  angular-app:
+    build: angular-frontend/
+    image: angular-frontend
+    restart: always
+    mem_limit: 1024m
+    container_name: Angular
+    network_mode: "host"
+    hostname: localhost
+    depends_on:
+      websocket-service:
+        condition: service_healthy
+    ports:
+      - 8079:8079
+    expose:
+      - 8079
+    healthcheck:
+      test: "exit 0"
+
+  zookeeper:
+    image: landoop/fast-data-dev
+    ports:
+      - "2181:2181"
+    mem_limit: 1024m
+    environment:
+      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
+    network_mode: "host"
+    container_name: zookeeper
+    hostname: localhost
+    restart: always
+    healthcheck:
+      test: "exit 0"
+
+  kafka:
+    image: landoop/fast-data-dev
+    ports:
+      - "9092:9092"
+    container_name: kafka
+    mem_limit: 1500m
+    environment:
+      JAVA_OPTS: "-XX:+UnlockExperimentalVMOptions
+                   -XX:+UseCGroupMemoryLimitForHeap"
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_ZOOKEEPER_CONNECT: localhost:2181
+      KAFKA_CREATE_TOPICS: "FileUrl:1:1, FileText:1:1, ParagraphContents:1:1,AnalyticsResults:1:1,UpstreamResults:1:1,NLPResults:1:1,
+				QueryEngineResults:1:1,WebContentExtractor:1:1,WebSearch:1:1,WebAnalyticsResults:1:1"
+    network_mode: "host"
+    hostname: localhost
+    depends_on:
+     - zookeeper
+    restart: always
+    healthcheck:
+      test: "exit 0"
+
+  document-provider:
+    image: document-provider:latest
+    build: document-provider/
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    ports:
+      - 8087:8087
+    expose:
+      - 8087
+    healthcheck:
+      test: "exit 0"
+
+  content-extractor:
+    image: content-extractor:latest
+    build: content-extractor/
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      document-provider:
+        condition: service_healthy
+    ports:
+      - 8086:8086
+    expose:
+      - 8086
+    healthcheck:
+      test: "exit 0"
+
+  paragraph-tokenizer:
+    image: paragraph-tokenizer:latest
+    build: paragraph-tokenizer/
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      content-extractor:
+        condition: service_healthy
+    ports:
+      - 8090:8090
+    expose:
+      - 8090
+    healthcheck:
+      test: "exit 0"
+
+  analytic-server:
+    image: analytic-server:latest
+    build: analytic-server/
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      neo4j:
+        condition: service_healthy
+      paragraph-tokenizer:
+        condition: service_healthy
+    ports:
+      - 8085:8085
+    expose:
+      - 8085
+    healthcheck:
+      test: "exit 0"
+
+  search-upstream-service:
+    image: search-upstream-service:latest
+    build: search-upstream-service/
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8094:8094
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      zookeeper:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    expose:
+      - 8094
+    healthcheck:
+      test: "exit 0"
+
+  knowledge-indexer:
+    image: knowledge-indexer:latest
+    build: knowledge-indexer/
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      neo4j:
+        condition: service_healthy
+      analytic-server:
+        condition: service_healthy
+    ports:
+      - 8088:8088
+    expose:
+      - 8088
+    healthcheck:
+      test: "exit 0"
+
+  nlp-service:
+    image: nlp-service:latest
+    build: nlp-service/
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      neo4j:
+        condition: service_healthy
+      search-upstream-service:
+        condition: service_healthy
+    ports:
+      - 8089:8089
+    expose:
+      - 8089
+    healthcheck:
+      test: "exit 0"
+
+  query-engine:
+    image: query-engine:latest
+    build: query-engine/
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      neo4j:
+        condition: service_healthy
+      nlp-service:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - 8096:8096
+    expose:
+      - 8096
+    healthcheck:
+      test: "exit 0"
+
+  websocket-service:
+    image: websocket-service:latest
+    build: websocket-service/
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      nlp-service:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - 8097:8097
+      - 8070:8070
+    expose:
+      - 8097
+      - 8070
+    healthcheck:
+      test: "exit 0"
+
+  question-provider:
+    image: question-provider:latest
+    build: question-provider/
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      mongodb:
+        condition: service_healthy
+      nlp-service:
+        condition: service_healthy
+    ports:
+      - 8095:8095
+    expose:
+      - 8095
+    healthcheck:
+      test: "exit 0"
+
+  question-publisher:
+    image: question-publisher:latest
+    build: question-publisher/
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      neo4j:
+        condition: service_healthy
+    ports:
+      - 8077:8077
+    expose:
+      - 8077
+    healthcheck:
+      test: "exit 0"
+
+  web-search-service:
+    image: web-search-service:latest
+    build: web-search-service/
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    depends_on:
+      kafka:
+        condition: service_healthy
+    ports:
+      - 8099:8099
+    expose:
+      - 8099
+    healthcheck:
+      test: "exit 0"
+
+  web-content-extractor:
+    image: web-content-extractor:latest
+    build: web-content-extractor/
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    depends_on:
+      kafka:
+        condition: service_healthy
+      web-search-service:
+        condition: service_healthy
+    ports:
+      - 8111:8111
+    expose:
+      - 8111
+    healthcheck:
+      test: "exit 0"
+
+  web-analytic-service:
+    image: web-analytic-service:latest
+    build: web-analytic-service/
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    depends_on:
+      kafka:
+        condition: service_healthy
+      neo4j:
+        condition: service_healthy
+      web-content-extractor:
+        condition: service_healthy
+    ports:
+      - 8098:8098
+    expose:
+      - 8098
+    healthcheck:
+      test: "exit 0"
+
+  ontology-management-service:
+    image: ontology-management-service:latest
+    build: ontology-management-service/
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    depends_on:
+      neo4j:
+        condition: service_healthy
+    ports:
+      - 8071:8071
+    expose:
+      - 8071
+    healthcheck:
+      test: "exit 0"
+

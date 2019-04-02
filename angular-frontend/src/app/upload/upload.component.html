@@ -1,0 +1,13 @@
+<body>
+
+    <h5><b>Drop files here</b></h5>
+
+  <div class="dragDropNew">
+  <file-drop headertext="Drop files here"  showBrowseBtn="true" (onFileDrop)="selectFile($event)" 
+  (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+</file-drop>
+</div>
+  {{msg}}
+  <br>
+  <button mat-raised-button color="primary" type="button" mat-dialog-close>Close</button>
+</body>

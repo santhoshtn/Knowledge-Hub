@@ -1,0 +1,25 @@
+button
+{
+    background-color: #d4d7db;
+    color: black;
+}
+.text-color
+{
+    color: white;
+}
+
+.lo
+{
+    margin-left:5px;
+}
+
+.form-control{
+    margin-left: 10px;
+    width: 60px;
+    margin-right: 10px;
+}
+
+.synonym{
+
+    width:140px;
+}

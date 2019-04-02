@@ -1,0 +1,4 @@
+server:
+  port: 8099
+  application:
+    name: web-search-service

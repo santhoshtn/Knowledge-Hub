@@ -1,0 +1,103 @@
+.navbar {
+	height: 70px;
+	background-color: rgba(0,0,0,0.9);
+	display: block;
+	text-align: center;
+}
+.navbar-header{
+	padding: 0px;
+}
+
+.navbar-brand{
+	font-size: 50px;
+	padding: 20px;
+	padding-left: 340px;
+	color: white;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-style: italic;
+}
+
+.navbar-nav {
+	float: right;
+	margin-bottom: 0;
+	padding-bottom:0;
+}
+
+.navbar .navbar-nav > .active > a {
+	color: #fff;
+}
+
+.navbar-logo {
+	margin-left: 35px;
+	margin-top: 0px;
+	padding: 0px;
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1440px)  {
+
+	.navbar.navbar-fixed-top {
+		background-color:rgba(0,0,0,1);
+	}
+	.navbar-brand{
+		font-size: 50px;
+		padding: 20px;
+		padding-left: 480px;
+		color: white;
+		font-family: 'Inconsolata', monospace;
+		font-style: normal;
+	}
+	.navbar-header{
+		padding: 0px;
+	}
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px)  {
+
+	.navbar.navbar-fixed-top {
+		background-color:rgba(0,0,0,1);
+	}
+	.navbar-brand{
+		font-size: 50px;
+		padding: 20px;
+		padding-left: 350px;
+		color: white;
+		font-family: Georgia, 'Times New Roman', Times, serif;
+		font-style: italic;
+	}
+	.navbar-header{
+		padding: 0px;
+	}
+}
+
+@media only screen and (max-width: 768px)  {
+
+	.navbar.navbar-fixed-top {
+		background-color:rgba(0,0,0,1);
+	}
+	.navbar-brand{
+		font-size: 30px;
+		padding: 20px;
+		padding-left: 180px;
+		color: white;
+		font-family: Georgia, 'Times New Roman', Times, serif;
+		font-style: italic;
+	}
+	.navbar-header{
+		padding: 0px;
+	}
+	.navbar-logo {
+		margin: 25px;
+		margin-top: 0px;
+		padding: 0px;
+	}
+}
+
+@media screen and (max-width: 766px) {
+	.navbar-brand{
+		display: none;
+	}
+	.navbar-logo {
+		margin: 0px;
+		position: relative;
+	}
+}

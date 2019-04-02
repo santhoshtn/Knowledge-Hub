@@ -1,0 +1,31 @@
+.card{
+    background-color: white;
+}
+.card-header{
+    background-color: lightgrey;
+}
+header{
+  position: relative;
+  overflow: hidden;
+}
+main{
+  position: relative;
+  overflow: hidden;
+  margin-top: 100px; 
+}
+footer{
+  position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 50px;
+    text-align: center;
+    padding-top: 10px;
+    color: white;
+    box-sizing: border-box;
+}
+  @media screen and (min-width: 665px) {
+    footer{
+      position: fixed;
+    }
+  }

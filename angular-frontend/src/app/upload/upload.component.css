@@ -1,0 +1,21 @@
+.dragDropNew{
+    width:600px;
+    height: 120px;
+}
+/* 
+body{
+    width: 500px;
+} */
+
+/* button{
+    margin-left: 400px;
+} */
+
+
+
+@media(max-width:768px){
+    .dragDropNew{
+        width:200px;
+    }
+
+}

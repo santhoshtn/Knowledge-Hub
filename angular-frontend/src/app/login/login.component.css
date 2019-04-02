@@ -1,0 +1,50 @@
+ /* custom styles for html page of login component
+ body{
+    padding:10%;
+    padding-left: 0%;
+    display: block;
+    border: 0.3rem;
+    border-style: solid;
+    padding-left: 32%;
+    background-color: darkgray;
+}  
+
+.warn{
+    color: red;
+}
+
+#logo{
+    margin-top:2px;
+    height:55px; 
+    width:60px;
+}
+#title{
+    margin-left:500px;
+    text-decoration: none;
+    color:inherit;
+} */
+/* #title a:hover{
+    text-decoration: none;
+} */
+/* #loginbutton{
+    margin-left: 420px;
+} */
+/* .mat-card{
+    width: 430px;
+    margin: auto;
+    background-color: aqua;
+    margin-top: 50px;
+    margin-bottom: 50px
+} */
+.my-card{
+     width: 400px; 
+    margin: auto;
+
+    /* margin-top: 40px; */
+}
+
+.close{
+    float: right; 
+}
+
+

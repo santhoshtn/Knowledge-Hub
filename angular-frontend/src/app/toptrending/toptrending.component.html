@@ -1,0 +1,31 @@
+<link href="https://fonts.googleapis.com/css?family=Margarine" rel="stylesheet">
+<div class="contact-area">
+    <div class="contact">
+      <main>
+        <section >
+          <div class="content">
+            <img src="../../assets/img/icon-spring-framework.svg" alt="Profile Image">
+            <aside>
+              <h1 style="color:black;font-family: 'Margarine', cursive;font-size:20px">TOP TRENDING QUESTION</h1>
+            </aside>
+            <button>
+              <span>MORE..</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M14.83 30.83L24 21.66l9.17 9.17L36 28 24 16 12 28z"></path> </g> </svg>
+            </button>
+          </div>
+        </section>
+      </main>
+      <nav>
+        <a class="gmail" *ngFor="let search of object5">
+          <div class="icon">
+            <img src="../../assets/img/question-mark.jpg" width="50px" height="50px">
+          </div>
+          <div class="content">
+            <h1>{{search.searchString}}</h1>
+          </div>
+          <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M17.17 32.92l9.17-9.17-9.17-9.17L20 11.75l12 12-12 12z"></path> </g> </svg>
+        </a>
+     
+      </nav>
+    </div>
+  </div>

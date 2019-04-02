@@ -1,0 +1,26 @@
+
+
+<link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Rancho" rel="stylesheet">
+<div class="cards">
+  <section class="row" *ngFor="let data of object1">
+    <div *ngIf="data.domain=='spring framework'">
+      <img  class="img" src="../../assets/img/icon-spring-framework.svg">
+    </div>
+  <div *ngIf="data.domain=='maths'">
+      <img class="img" src="../../assets/img/maths.jpg">
+    </div>
+      <div class="col s12 m9 l10">
+        <h1 class="title" style=" text-transform: capitalize;font-family: 'Caveat Brush', cursive;font-size:30px">{{data.domain}}</h1>
+        <a href="{{data.documentId}}" target="_blank"><u>{{data.documentId}}</u></a>
+        <p *ngIf="flag" class="text" style="text-align: justify;font-family: 'Rancho', cursive;font-size:20px;">{{data.name | slice:0:200}}......</p>
+        <div *ngIf="data==var1">
+            <p style="text-align: justify;font-family: 'Rancho', cursive;font-size:20px;">{{data.name}}</p>
+            <p style="text-align: justify;font-family: 'Rancho', cursive;font-size:20px; font-weight: bold">Intent level : {{data.intentLevel}}</p>
+            <p style="text-align: justify;font-family: 'Rancho', cursive;font-size:20px; font-weight:bold">Confidence score : {{data.confidenceScore}}</p>
+          </div>
+          <img class="readmore" src="../../assets/img/readmore.svg" (click)="assignVar(data)">
+      </div>
+    </section>
+
+</div>

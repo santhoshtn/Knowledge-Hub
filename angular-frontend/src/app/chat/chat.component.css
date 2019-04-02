@@ -1,0 +1,70 @@
+/* .mat-dialog-title{
+
+    background-color: turquoise;
+} */
+
+.message {
+    border-radius: 20px;
+    margin: 0 15px 10px;
+    padding: 15px 20px;
+    position: relative;
+    font-weight: bold;
+    font-size: 15px;
+}
+.message.to {
+    background-color: rgb(197, 231, 116);
+    color:  #363636;
+    margin-left: 100px;
+    text-align: right;
+}
+.message.from {
+    background-color: rgb(156, 228, 149);
+    color: #363636;
+    margin-right: 100px;
+
+}
+
+.mat-dialog-title{
+    font-size: 20px;
+}
+
+/*
+.message.to + .message.to,
+.message.from + .message.from {
+margin-top: -10px;
+}  */
+
+body{
+    width: 500px;
+}
+
+button{
+    float: right;
+}
+
+.btn{ 
+    float: right;
+    color: white;
+    background-color: #343a40;
+}
+.width1{
+    margin-top: 0;
+    padding-top: 0;
+}
+.width2{
+    width:70%;
+    float: right;
+} 
+
+@media(max-width:768px){
+    body{
+        width:200px;
+    }
+   
+    .dialog{
+        top:50px;
+    }
+
+   
+}
+

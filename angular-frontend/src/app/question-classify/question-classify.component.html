@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body style="background-color:white;" *ngIf="this.token.getToken()">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <header> <app-nab-bar></app-nab-bar></header>
+<main>
+<div class="card text-center">
+  <h3 class="card-header">Question {{currQuesNum}} of {{numQues}}</h3>
+  <div class="card-block"><br>
+    <h4 class="card-title">{{currentQuestion}}</h4>
+    <br>
+    <form>
+      <div class="form-group" *ngIf="finisher">
+        <input type="text" class="form-control" name="input1" [(ngModel)]="input1" placeholder="Write here">
+      </div>
+      <br>
+    </form>
+    <div *ngIf="finisher">
+    <a  class="btn btn-success" (click)="sendKnowledgeData()">Knowledge</a>&nbsp;
+    <a class="btn btn-success" (click)="sendComprehensionData()">Comprehension</a>&nbsp;
+    <a  class="btn btn-success" (click)="sendApplicationData()">Application</a>&nbsp;
+    <a  class="btn btn-success" (click)="sendAnalysisData()">Analysis</a>&nbsp;
+    <a  class="btn btn-success" (click)="sendSynthesisData()">Synthesis</a>&nbsp;
+    <a  class="btn btn-success" (click)="sendEvaluationData()">Evaluation</a>
+    </div>
+  </div>
+  <br>
+  <div *ngIf="finisher">
+    <!-- <a href="#" class="btn btn-info" style="margin:0 0 0 30;" (click)="getPrevious()">Back</a>&nbsp;&nbsp;&nbsp; -->
+    <a class="btn btn-secondary" style="margin:0 0 0 60;" (click)="getNext()">Save & Continue</a>&nbsp;
+  </div>
+  <br>
+</div>
+</main>
+</body>
+<footer><app-footer></app-footer></footer>
+
+</html>

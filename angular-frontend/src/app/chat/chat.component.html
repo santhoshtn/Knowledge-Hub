@@ -1,0 +1,57 @@
+<head>
+    <meta charset="utf-8">
+    <title>Reveal Bootstrap Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+  
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+  </head>
+<body>
+
+  
+  <button mat-dialog-close><i class="fa fa-times"></i></button>
+
+  <h1 mat-dialog-title>JARVIS</h1>
+
+  <div mat-dialog-content id="text">
+  
+  <ng-container  *ngFor="let message of messages | async">
+  
+    <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot',
+                                      'to':   message.sentBy === 'user' }">
+      {{ message.content }}
+    </div>
+  
+  </ng-container>
+  
+  </div>
+  
+  
+  <label for="nameField">Your Message</label>
+  
+  <div mat-dialog-actions class="width1">
+    <mat-form-field class="width2">
+      <input matInput [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text"><br>
+    </mat-form-field> &nbsp;
+  
+  <button class="btn btn-default" mat-raised-button  (click)="sendMessage()">Send</button>
+  <!-- <button mat-stroked-button type="button" mat-dialog-close>Close Bot</button> -->
+  
+  </div>
+   <!-- JavaScript Libraries -->
+   <script src="../../assets/conceptsLib/jquery/jquery.min.js"></script>
+   <script src="../../assets/conceptsLib/jquery/jquery-migrate.min.js"></script>
+   <script src="../../assets/conceptsLib/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <script src="../../assets/conceptsLib/easing/easing.min.js"></script>
+   <script src="../../assets/conceptsLib/superfish/hoverIntent.js"></script>
+   <script src="../../assets/conceptsLib/superfish/superfish.min.js"></script>
+   <script src="../../assets/conceptsLib/wow/wow.min.js"></script>
+   <script src="../../assets/conceptsLib/owlcarousel/owl.carousel.min.js"></script>
+   <script src="../../assets/conceptsLib/magnific-popup/magnific-popup.min.js"></script>
+   <script src="../../assets/conceptsLib/sticky/sticky.js"></script>
+ 
+   <!-- Template Main Javascript File -->
+   <script src="../../assets/conceptsTs/main.js"></script> 
+  </body>

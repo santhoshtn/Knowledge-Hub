@@ -1,0 +1,8 @@
+identity,name,parentId,type,parentNodeType
+SPRING:1,Intent,SPRING:0,level,Intent
+SPRING:2,Knowledge,SPRING:1,level,Intent
+SPRING:3,Comprehension,SPRING:1,level,Intent
+SPRING:4,Application,SPRING:1,level,Intent
+SPRING:5,Analysis,SPRING:1,level,Intent
+SPRING:6,Synthesis,SPRING:1,level,Intent
+SPRING:7,Evaluation,SPRING:1,level,Intent

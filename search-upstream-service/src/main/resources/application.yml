@@ -1,0 +1,21 @@
+server:
+  port: 8094
+
+spring:
+  data:
+    mongodb:
+      database: QuestionStore
+      host: localhost
+      port: 27017
+  application:
+    name: upstream-service
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:9091/eureka/
+    lease:
+      duration: 5

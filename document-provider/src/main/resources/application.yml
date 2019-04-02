@@ -1,0 +1,39 @@
+server:
+  port: 8087
+
+aws:
+  access:
+    key:
+      id: xxxx
+      secret: yyyy
+  region: ap-south-1
+  s3:
+    bucket: knowledge-hub
+  credentials:
+    instanceProfile: true
+
+spring:
+  application:
+    name: document-provider
+  batch:
+    job:
+      enabled: false
+  http:
+    multipart:
+      enabled: true
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:9091/eureka/
+    lease:
+      duration: 5
+
+

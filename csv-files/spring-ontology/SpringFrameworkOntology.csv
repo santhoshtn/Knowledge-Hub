@@ -1,0 +1,92 @@
+identity,name,parentId,type,class,parentRelation,context
+SPRING:1,Spring Framework,SPRING:0,concept,concept,subconcept of,Spring framework
+SPRING:2,Spring Core,SPRING:1,concept,concept,subconcept of,Spring framework
+SPRING:3,Spring MVC,SPRING:1,concept,concept,subconcept of,Spring framework
+SPRING:4,Spring Data JPA,SPRING:1,concept,concept,subconcept of,Spring framework
+SPRING:5,Spring AOP,SPRING:1,concept,concept,subconcept of,Spring framework
+SPRING:6,Spring Security,SPRING:1,concept,concept,subconcept of,Spring framework
+SPRING:7,Spring Cloud,SPRING:1,concept,concept,subconcept of,Spring framework
+SPRING:8,Spring Reactive,SPRING:1,concept,concept,subconcept of,Spring framework
+SPRING:9,Beans,SPRING:2,concept,concept,subconcept of,Spring Core
+SPRING:10,IOC Container,SPRING:2,concept,concept,subconcept of,Spring Core
+SPRING:11,Annotations,SPRING:2,concept,concept,subconcept of,Spring Core
+SPRING:12,Domain Model,SPRING:3,concept,concept,subconcept of,Spring MVC
+SPRING:13,View,SPRING:3,concept,concept,subconcept of,Spring MVC
+SPRING:14,RESTful service,SPRING:3,concept,concept,subconcept of,Spring MVC
+SPRING:15,Lifecycle,SPRING:9,concept,concept,subconcept of,Beans
+SPRING:16,Scopes,SPRING:9,concept,concept,subconcept of,Beans
+SPRING:17,Autowiring,SPRING:9,concept,concept,subconcept of,Beans
+SPRING:18,Declaration,SPRING:9,concept,concept,subconcept of,Beans
+SPRING:19,Customization,SPRING:9,concept,concept,subconcept of,Beans
+SPRING:20,Bean Definition Inheritance,SPRING:9,concept,concept,subconcept of,Beans
+SPRING:21,Dependancy Injection,SPRING:10,concept,concept,subconcept of,IOC Container
+SPRING:22,Bean Factory,SPRING:10,concept,concept,subconcept of,IOC Container
+SPRING:23,Application Context,SPRING:10,concept,concept,subconcept of,IOC Container
+SPRING:24,Custom Annotation,SPRING:11,concept,concept,subconcept of,Annotations
+SPRING:25,@Primary,SPRING:11,concept,concept,subconcept of,Annotations
+SPRING:26,@Qualifier,SPRING:11,concept,concept,subconcept of,Annotations
+SPRING:27,@Bean,SPRING:11,concept,concept,subconcept of,Annotations
+SPRING:28,@Component,SPRING:11,concept,concept,subconcept of,Annotations
+SPRING:29,@Autowired,SPRING:11,concept,concept,subconcept of,Annotations
+SPRING:30,@ComponentScan,SPRING:11,concept,concept,subconcept of,Annotations
+SPRING:31,@Required,SPRING:11,concept,concept,subconcept of,Annotations
+SPRING:32,@Resource,SPRING:11,concept,concept,subconcept of,Annotations
+SPRING:33,@PostConstruct,SPRING:11,concept,concept,subconcept of,Annotations
+SPRING:34,@PreDestroy,SPRING:11,concept,concept,subconcept of,Annotations
+SPRING:35,@Configuration,SPRING:11,concept,concept,subconcept of,Annotations
+SPRING:36,@Value,SPRING:11,concept,concept,subconcept of,Annotations
+SPRING:37,Value Object,SPRING:12,concept,concept,subconcept of,Domain Model
+SPRING:38,Entity,SPRING:12,concept,concept,subconcept of,Domain Model
+SPRING:39,Template Engine,SPRING:13,concept,concept,subconcept of,View
+SPRING:40,JSP,SPRING:13,concept,concept,subconcept of,View
+SPRING:41,Annotations,SPRING:14,concept,concept,subconcept of,RESTful service
+SPRING:42,REST Levels,SPRING:14,concept,concept,subconcept of,RESTful service
+SPRING:43,modes,SPRING:17,concept,concept,subconcept of,Autowiring
+SPRING:44,Annotation,SPRING:18,concept,concept,subconcept of,Declaration
+SPRING:45,XML Configuration,SPRING:18,concept,concept,subconcept of,Declaration
+SPRING:46,Lifecycle callbacks,SPRING:19,concept,concept,subconcept of,Customization
+SPRING:47,Types,SPRING:21,concept,concept,subconcept of,Dependancy Injection
+SPRING:48,Messaging,SPRING:23,concept,concept,subconcept of,Application Context
+SPRING:49,Events,SPRING:23,concept,concept,subconcept of,Application Context
+SPRING:50,Jade4J,SPRING:39,concept,concept,subconcept of,Template Engine
+SPRING:51,Thymeleaf,SPRING:39,concept,concept,subconcept of,Template Engine
+SPRING:52,FreeMarker,SPRING:39,concept,concept,subconcept of,Template Engine
+SPRING:53,Groovy Markup Template Engine,SPRING:39,concept,concept,subconcept of,Template Engine
+SPRING:54,Velocity,SPRING:39,concept,concept,subconcept of,Template Engine
+SPRING:55,Jmustache,SPRING:39,concept,concept,subconcept of,Template Engine
+SPRING:56,Pebble,SPRING:39,concept,concept,subconcept of,Template Engine
+SPRING:57,@Controller,SPRING:41,concept,concept,subconcept of,Annotations
+SPRING:58,@SessionAttributes,SPRING:41,concept,concept,subconcept of,Annotations
+SPRING:59,@SessionAttribute,SPRING:41,concept,concept,subconcept of,Annotations
+SPRING:60,@RestControllerAdvice,SPRING:41,concept,concept,subconcept of,Annotations
+SPRING:61,@ControllerAdvice,SPRING:41,concept,concept,subconcept of,Annotations
+SPRING:62,@ResponseStatus,SPRING:41,concept,concept,subconcept of,Annotations
+SPRING:63,@ResponseBody,SPRING:41,concept,concept,subconcept of,Annotations
+SPRING:64,@RequestPart,SPRING:41,concept,concept,subconcept of,Annotations
+SPRING:65,@RequestHeader,SPRING:41,concept,concept,subconcept of,Annotations
+SPRING:66,@RequestParam,SPRING:41,concept,concept,subconcept of,Annotations
+SPRING:67,@RequestAttribute,SPRING:41,concept,concept,subconcept of,Annotations
+SPRING:68,@InitBinder,SPRING:41,concept,concept,subconcept of,Annotations
+SPRING:69,@ExceptionHandler,SPRING:41,concept,concept,subconcept of,Annotations
+SPRING:70,@CrossOrigin,SPRING:41,concept,concept,subconcept of,Annotations
+SPRING:71,@CookieValue,SPRING:41,concept,concept,subconcept of,Annotations
+SPRING:72,@PathVariable,SPRING:41,concept,concept,subconcept of,Annotations
+SPRING:73,@RequestBody,SPRING:41,concept,concept,subconcept of,Annotations
+SPRING:74,@RequestMapping,SPRING:41,concept,concept,subconcept of,Annotations
+SPRING:75,@RestController,SPRING:41,concept,concept,subconcept of,Annotations
+SPRING:76,Level 0,SPRING:42,concept,concept,subconcept of,REST Levels
+SPRING:77,Level 1,SPRING:42,concept,concept,subconcept of,REST Levels
+SPRING:78,Level 2,SPRING:42,concept,concept,subconcept of,REST Levels
+SPRING:79,Hateos,SPRING:42,concept,concept,subconcept of,REST Levels
+SPRING:80,Initialization callbacks,SPRING:46,concept,concept,subconcept of,Lifecycle callbacks
+SPRING:81,Destruction callbacks,SPRING:46,concept,concept,subconcept of,Lifecycle callbacks
+SPRING:82,Setter based DI,SPRING:47,concept,concept,subconcept of,Types
+SPRING:83,Property based DI,SPRING:47,concept,concept,subconcept of,Types
+SPRING:84,Constructor based DI,SPRING:47,concept,concept,subconcept of,Types
+SPRING:85,ApplicationEvent,SPRING:49,concept,concept,subconcept of,Events
+SPRING:86,ApplicationListener,SPRING:49,concept,concept,subconcept of,Events
+SPRING:87,@PatchMapping,SPRING:74,concept,concept,subconcept of,@RequestMapping
+SPRING:88,@PutMapping,SPRING:74,concept,concept,subconcept of,@RequestMapping
+SPRING:89,@GetMapping,SPRING:74,concept,concept,subconcept of,@RequestMapping
+SPRING:90,@PostMapping,SPRING:74,concept,concept,subconcept of,@RequestMapping
+SPRING:91,@DeleteMapping,SPRING:74,concept,concept,subconcept of,@RequestMapping

@@ -1,0 +1,45 @@
+knowledgehub:
+    jwtExpiration: 86400
+    jwtSecret: jwtSecretKey
+
+spring:
+    application:
+        name: api-gateway
+zuul:
+    routes:
+        login-service:
+            url: http://localhost:8084
+        document-provider:
+            url: http://localhost:8087
+        upstream-service:
+            url: http://localhost:8094
+        web-socket-service:
+            url: http://localhost:8097
+        ontology-management-service:
+            url: http://localhost:8071
+        web-search-service:
+            url: http://localhost:8099
+        question-publisher:
+            url: http://localhost:8077
+        question-provider:
+            url: http://localhost:8095
+    sensitiveHeaders:
+
+eureka:
+    instance:
+        leaseRenewalIntervalInSeconds: 1
+        leaseExpirationDurationInSeconds: 2
+    client:
+        serviceUrl:
+            defaultZone: http://127.0.0.1:9091/eureka/
+        lease:
+            duration: 5
+server:
+    ports:
+        http: 8001
+    port: 8092
+    ssl:
+        key-store: classpath:keystore.p12
+        key-store-password: 123456
+        keyStoreType: PKCS12
+        keyAlias: tomcat

@@ -1,0 +1,102 @@
+identity,name,parentId,type,class,parentRelation,context
+SPRING:1,Maths,SPRING:0,concept,concept,subconcept of,Maths
+SPRING:2,Sets,SPRING:1,concept,concept,subconcept of,Maths
+SPRING:3,Sets Representation,SPRING:2,concept,concept,subconcept of,Sets
+SPRING:4,Roster or Tabular,SPRING:3,concept,concept,subconcept of,Set Representation
+SPRING:5,Set Builder,SPRING:3,concept,concept,subconcept of,Set Representation
+SPRING:6,Empty Set,SPRING:2,concept,concept,subconcept of,Sets
+SPRING:7,Finite Sets,SPRING:2,concept,concept,subconcept of,Sets
+SPRING:8,Infinite Sets,SPRING:2,concept,concept,subconcept of,Sets
+SPRING:9,Equal Sets,SPRING:2,concept,concept,subconcept of,Sets
+SPRING:10,Subsets,SPRING:2,concept,concept,subconcept of,Sets
+SPRING:11,Subsets of set of real numbers,SPRING:10,concept,concept,subconcept of,Subsets
+SPRING:12,Intervals as subsets of R,SPRING:10,concept,concept,subconcept of,Subsets
+SPRING:13,Power Set,SPRING:2,concept,concept,subconcept of,Sets
+SPRING:14,Universal Set,SPRING:2,concept,concept,subconcept of,Sets
+SPRING:15,Venn Diagrams,SPRING:2,concept,concept,subconcept of,Sets
+SPRING:16,Operations on Sets,SPRING:2,concept,concept,subconcept of,Sets
+SPRING:17,Union of sets,SPRING:16,concept,concept,subconcept of,Operations on Sets
+SPRING:18,Intersection of sets,SPRING:16,concept,concept,subconcept of,Operations on Sets
+SPRING:19,Difference of sets,SPRING:16,concept,concept,subconcept of,Operations on Sets
+SPRING:20,Complement of a Set,SPRING:2,concept,concept,subconcept of,Sets
+SPRING:21,Complement laws,SPRING:20,concept,concept,subconcept of,Complement of a Set
+SPRING:22,De Morgan’s law,SPRING:20,concept,concept,subconcept of,Complement of a Set
+SPRING:23,Law of double complementation,SPRING:20,concept,concept,subconcept of,Complement of a Set
+SPRING:24,Laws of empty set,SPRING:20,concept,concept,subconcept of,Complement of a Set
+SPRING:25,Laws of universal set,SPRING:20,concept,concept,subconcept of,Complement of a Set
+SPRING:26,Relations And Functions,SPRING:2,concept,concept,subconcept of,Sets
+SPRING:27,Cartesian Products of Sets,SPRING:25,concept,concept,subconcept of,Relations And Functions
+SPRING:28,Relations,SPRING:25,concept,concept,subconcept of,Relations And Functions
+SPRING:29,Functions,SPRING:25,concept,concept,subconcept of,Relations And Functions
+SPRING:30,Identity Function,SPRING:29,concept,concept,subconcept of,Functions
+SPRING:31,Constant Function,SPRING:29,concept,concept,subconcept of,Functions
+SPRING:32,Polynomial Function,SPRING:29,concept,concept,subconcept of,Functions
+SPRING:33,Modulus Function,SPRING:29,concept,concept,subconcept of,Functions
+SPRING:34,Signum Function,SPRING:29,concept,concept,subconcept of,Functions
+SPRING:35,Greatest Integer Function,SPRING:29,concept,concept,subconcept of,Functions
+SPRING:36,Algebra of real functions,SPRING:29,concept,concept,subconcept of,Functions
+SPRING:37,Addition of two real functions,SPRING:36,concept,concept,subconcept of,Algebra of real functions
+SPRING:38,Subtraction of a real function from another,SPRING:36,concept,concept,subconcept of,Algebra of real functions
+SPRING:39,Multiplication by a scalar,SPRING:36,concept,concept,subconcept of,Algebra of real functions
+SPRING:40,Multiplication of two real functions,SPRING:36,concept,concept,subconcept of,Algebra of real functions
+SPRING:41,Quotient of two real functions,SPRING:36,concept,concept,subconcept of,Algebra of real functions
+SPRING:42,Trigonometric Functions,SPRING:29,concept,concept,subconcept of,Functions
+SPRING:43,Angles,SPRING:42,concept,concept,subconcept of,Trigonometric Functions
+SPRING:44,Degree,SPRING:43,concept,concept,subconcept of,Angles
+SPRING:45,Radian ,SPRING:43,concept,concept,subconcept of,Angles
+SPRING:46,Relation between radian and real numbers,SPRING:43,concept,concept,subconcept of,Angles
+SPRING:47,Relation between degree and radian,SPRING:43,concept,concept,subconcept of,Angles
+SPRING:48,Notational Convention,SPRING:43,concept,concept,subconcept of,Angles
+SPRING:49,Sign of trigonometric functions,SPRING:42,concept,concept,subconcept of,Trigonometric Functions
+SPRING:50,Domain of trigonometric functions,SPRING:42,concept,concept,subconcept of,Trigonometric Functions
+SPRING:51,Range of trigonometric functions,SPRING:42,concept,concept,subconcept of,Trigonometric Functions
+SPRING:52,Trigonometric Equations,SPRING:42,concept,concept,subconcept of,Trigonometric Functions
+SPRING:53,Complex Numbers,SPRING:1,concept,concept,subconcept of,Maths
+SPRING:54,Algebra of Complex Numbers,SPRING:53,concept,concept,subconcept of,Complex Numbers
+SPRING:55,Addition of two complex numbers,SPRING:54,concept,concept,subconcept of,Algebra of Complex Numbers
+SPRING:56,Difference of two complex numbers,SPRING:54,concept,concept,subconcept of,Algebra of Complex Numbers
+SPRING:57,Multiplication of two complex numbers,SPRING:54,concept,concept,subconcept of,Algebra of Complex Numbers
+SPRING:58,Closure Law,SPRING:57,concept,concept,subconcept of,Multiplication of two complex numbers
+SPRING:59,Commutative Law,SPRING:57,concept,concept,subconcept of,Multiplication of two complex numbers
+SPRING:60,Associative Law,SPRING:57,concept,concept,subconcept of,Multiplication of two complex numbers
+SPRING:61,Existence of Multiplicative Identity,SPRING:57,concept,concept,subconcept of,Multiplication of two complex numbers
+SPRING:62,Distributive Law,SPRING:57,concept,concept,subconcept of,Multiplication of two complex numbers
+SPRING:63,Existence of Multiplicative Inverse,SPRING:57,concept,concept,subconcept of,Multiplication of two complex numbers
+SPRING:64,Division of two complex numbers,SPRING:54,concept,concept,subconcept of,Algebra of Complex Numbers
+SPRING:65,Power of i,SPRING:64,concept,concept,subconcept of,Division of two complex numbers
+SPRING:66,Square Roots of a Negative Real Number,SPRING:64,concept,concept,subconcept of,Division of two complex numbers
+SPRING:67,Identities,SPRING:64,concept,concept,subconcept of,Division of two complex numbers
+SPRING:68,Modulus of a Complex Number,SPRING:53,concept,concept,subconcept of,Complex Numbers
+SPRING:69,Conjugate of a Complex Number,SPRING:53,concept,concept,subconcept of,Complex Numbers
+SPRING:70,Argand Plane Representation,SPRING:53,concept,concept,subconcept of,Complex Numbers
+SPRING:71,Polar Representation,SPRING:53,concept,concept,subconcept of,Complex Numbers
+SPRING:72,Quadratic Equations,SPRING:1,concept,concept,subconcept of,Maths
+SPRING:73,Inequalities,SPRING:1,concept,concept,subconcept of,Maths
+SPRING:74,Linear Ineqalities,SPRING:73,concept,concept,subconcept of,Inequalities
+SPRING:75,Algebraic Solutions of Linear Inequalities in One Variable,SPRING:74,concept,concept,subconcept of,Linear Ineqalities
+SPRING:76,Graphical Representation of Linear Ineqalities,SPRING:74,concept,concept,subconcept of,Linear Ineqalities
+SPRING:77,Graphical Solution of Linear Inequalities in Two Variables,SPRING:74,concept,concept,subconcept of,Linear Ineqalities
+SPRING:78,Permutation,SPRING:1,concept,concept,subconcept of,Maths
+SPRING:79,Permutations when all the objects are distinct,SPRING:78,concept,concept,subconcept of,Permutation
+SPRING:80,Factorial notation,SPRING:1,concept,concept,subconcept of,Maths
+SPRING:81,Permutations when all the objects are not distinct objects,SPRING:78,concept,concept,subconcept of,Permutation
+SPRING:82,Combination,SPRING:1,concept,concept,subconcept of,Maths
+SPRING:83,Binomial Theorem,SPRING:1,concept,concept,subconcept of,Maths
+SPRING:84,Positive Integral Indices,SPRING:83,concept,concept,subconcept of,Binomial Theorem
+SPRING:85,Pascal’s Triangle,SPRING:1,concept,concept,subconcept of,Maths
+SPRING:86,Binomial theorem for any positive integer n,SPRING:83,concept,concept,subconcept of,Binomial Theorem
+SPRING:87,Sequences,SPRING:1,concept,concept,subconcept of,Maths
+SPRING:88,Series,SPRING:1,concept,concept,subconcept of,Maths
+SPRING:89,Arithmetic Progression,SPRING:88,concept,concept,subconcept of,Series
+SPRING:90,Arithmetic mean,SPRING:89,concept,concept,subconcept of,Arithmetic Progression
+SPRING:91,Geometric Progression,SPRING:88,concept,concept,subconcept of,Series
+SPRING:92,General term of a G .P.,SPRING:91,concept,concept,subconcept of,Geometric Progression
+SPRING:93,Sum to n terms of a G .P.,SPRING:91,concept,concept,subconcept of,Geometric Progression
+SPRING:94,Geometric Mean,SPRING:91,concept,concept,subconcept of,Geometric Progression
+SPRING:95,Relationship Between A.M. and G.M,SPRING:88,concept,concept,subconcept of,Series
+SPRING:96,Straight Lines,SPRING:1,concept,concept,subconcept of,Maths
+SPRING:97,Slope of a Line,SPRING:96,concept,concept,subconcept of,Straight Lines
+SPRING:98,Slope of a line when coordinates of any two points on the line are given,SPRING:98,concept,concept,subconcept of,Slope of a Line
+SPRING:99,Parallel Lines,SPRING:96,concept,concept,subconcept of,Straight Lines
+SPRING:100,Angle between two lines,SPRING:96,concept,concept,subconcept of,Straight Lines
+SPRING:101,Collinearity of three points,SPRING:96,concept,concept,subconcept of,Straight Lines

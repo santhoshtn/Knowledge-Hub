@@ -1,0 +1,85 @@
+
+
+
+section {
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  max-width: 940px;
+  min-height: 80px;
+  padding: 20px;
+  background: #FFF;
+  border-radius: 5px;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.15);
+  border-top:1px solid gray;
+  border-left: 1px solid gray;
+  box-shadow: 5px 5px #e6e6e6;
+  
+}
+
+
+section h1 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1.3em;
+  color: #555;
+}
+
+section p {
+  margin: 15px 0 0 0;
+  font-weight: 300;
+  line-height: 1.4em;
+  font-size: 0.95em;
+  color: #888;
+}
+
+.cards {
+  margin-top: 10vh;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-bottom : 150px;
+
+}
+
+
+.cards i {
+  font-size: 4em;
+  padding: 15px;
+  color: #CCC;
+  border: 8px solid #CCC;
+  border-radius: 50%;
+}
+
+
+#section0 {
+  display: none;
+}
+
+.col{
+  text-align: justify;
+ 
+}
+
+.img{
+  float:left;
+  width:150px;
+  height:150px
+}
+
+.readmore{
+  float:right;
+}
+a{
+  word-wrap: break-word; 
+}
+@media screen and (max-width: 600px) {
+   
+  section h1 {
+    margin: 30px 0 0 0;
+  }
+  section{
+    max-width: 1040px;
+    min-height: 80px;
+  }
+}
+
